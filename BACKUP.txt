@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><link href="App_Themes/Default/00.reset.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Default/01.960_24_col.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Default/02.text.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Default/03.layout.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Default/BreadCrumb.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Default/buttons.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Default/Forms.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Default/grids.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Default/left-menu.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Default/styles.css" type="text/css" rel="stylesheet" /><title>
+	ECCVApp
+</title><link type="text/css" href="Resources/jquery-ui/jquery-ui-1.8.16.custom.css" rel="stylesheet" /><link type="text/css" href="Resources/jquery-libs/autocomplete/styles.css" rel="stylesheet" /><link href="Content/bootstrap.css" rel="stylesheet" /><link href="Content/bootstrap.min.css" rel="stylesheet" /><link href="Content/Site.css" rel="stylesheet" /><meta http-equiv="Content-Type" content="text/html;charset=utf-8" /><meta name="description" /><meta name="keywords" />
+
+    <style>
+        body,html{
+    height: 100%;
+  }
+
+  nav.sidebar, .main{
+    -webkit-transition: margin 200ms ease-out;
+      -moz-transition: margin 200ms ease-out;
+      -o-transition: margin 200ms ease-out;
+      transition: margin 200ms ease-out;
+  }
+
+  .main{
+    padding: 10px 10px 0 10px;
+  }
+
+ @media (min-width: 765px) {
+
+    .main{
+      position: absolute;
+      width: calc(100% - 40px); 
+      margin-left: 40px;
+      float: right;
+    }
+
+    nav.sidebar:hover + .main{
+      margin-left: 200px;
+    }
+
+    nav.sidebar.navbar.sidebar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+      margin-left: 0px;
+    }
+
+    nav.sidebar .navbar-brand, nav.sidebar .navbar-header{
+      text-align: center;
+      width: 100%;
+      margin-left: 0px;
+    }
+    
+    nav.sidebar a{
+      padding-right: 13px;
+    }
+
+    nav.sidebar .navbar-nav > li:first-child{
+      border-top: 1px #e5e5e5 solid;
+    }
+
+    nav.sidebar .navbar-nav > li{
+      border-bottom: 1px #e5e5e5 solid;
+    }
+
+    nav.sidebar .navbar-nav .open .dropdown-menu {
+      position: static;
+      float: none;
+      width: auto;
+      margin-top: 0;
+      background-color: transparent;
+      border: 0;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+
+    nav.sidebar .navbar-collapse, nav.sidebar .container-fluid{
+      padding: 0 0px 0 0px;
+    }
+
+    .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+      color: #777;
+    }
+
+    nav.sidebar{
+      width: 200px;
+      height: 100%;
+      margin-left: -160px;
+      float: left;
+      margin-bottom: 0px;
+    }
+
+    nav.sidebar li {
+      width: 100%;
+    }
+
+    nav.sidebar:hover{
+      margin-left: 0px;
+    }
+
+    .forAnimate{
+      opacity: 0;
+    }
+  }
+   
+  @media (min-width: 1330px) {
+
+    .main{
+      width: calc(100% - 200px);
+      margin-left: 200px;
+    }
+
+    nav.sidebar{
+      margin-left: 0px;
+      float: left;
+    }
+
+    nav.sidebar .forAnimate{
+      opacity: 1;
+    }
+  }
+
+  nav.sidebar .navbar-nav .open .dropdown-menu>li>a:hover, nav.sidebar .navbar-nav .open .dropdown-menu>li>a:focus {
+    color: #CCC;
+    background-color: transparent;
+  }
+
+  nav:hover .forAnimate{
+    opacity: 1;
+  }
+  section{
+    padding-left: 15px;
+  }
+  .navbar-nav li a {
+            color: #fff;
+            font-size: 20px;
+            font-family: Arial;
+        }
+
+        .nav > li > a:hover, .nav > li > a:focus {
+            text-decoration: none;
+            background-color: #eee;
+            color: #f3b21d;
+        }
+  
+    </style>
+</head>
+<body>
+    <form name="aspnetForm" method="post" action="./OrderDetail.aspx?Id=ORD-001" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTcxODY1MTQ1NA9kFgJmD2QWAgIDD2QWAgIND2QWBAIBDw8WAh4EVGV4dAUtSGVyZSBhcmUgdGhlIGRldGFpbHMgZm9yIG91ciBPcmRlciBOby5PUkQtMDAxZGQCBw88KwARAwAPFgQeC18hRGF0YUJvdW5kZx4LXyFJdGVtQ291bnQCAmQBEBYAFgAWAAwUKwAAFgJmD2QWBgIBD2QWBmYPDxYCHwAFBVAwMC0xZGQCAQ8PFgIfAAUCMTBkZAICDw8WAh8ABQQxLjAwZGQCAg9kFgZmDw8WAh8ABQVQMDAtMWRkAgEPDxYCHwAFAjEwZGQCAg8PFgIfAAUEMS4wMGRkAgMPDxYCHgdWaXNpYmxlaGRkGAMFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYCBRtjdGwwMCRIZWFkTG9naW5TdGF0dXMkY3RsMDEFG2N0bDAwJEhlYWRMb2dpblN0YXR1cyRjdGwwMwUdY3RsMDAkQ29udGVudFBsYWNlSG9sZGVyMSRncmQPPCsADAEIAgFkBRNjdGwwMCRIZWFkTG9naW5WaWV3Dw9kAgFkJkZsALs7Xh6SFRE25iP3OjEEU3Pib42/V3nR6KCKpsU=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="B8D414F1" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAITqNoLKdoM2ApYo+NMWrI47cXYsDwrjDllBFuYH4rnHMcmYoNk49F01dQq2Dfpdu2lbjrjJ/bhylbqp6h0BG5X" />
+</div>
+    
+
+         <div class="FullWidth HeaderTop HeaderGrad clearfix">
+        <div class="container_24 clearfix Header">
+            <a href="#" id="ctl00_A1" class="branding grid_11 alpha"></a>
+             <div class="col-sm-4 navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="Index.aspx">Home</a></li>
+                        <li><a href="AboutUs.aspx">About</a></li>
+                        <li><a href="Contactus.aspx">Contact</a></li>
+                    </ul>
+        </div>
+            <div class="col-sm-6 UtilityMenu omega">
+                <div class="info-area">
+                    
+                            Welcome <span class="bold">
+                                <span id="ctl00_HeadLoginView_HeadLoginName">bob</span>
+                            </span> | 
+                        
+                    
+                   
+                    
+                    <a id="ctl00_HeadLoginStatus" href="javascript:__doPostBack(&#39;ctl00$HeadLoginStatus$ctl00&#39;,&#39;&#39;)">Logout</a>
+                </div>
+              
+                
+            </div>
+        </div>
+       
+    </div>
+        
+      
+
+     
+        
+      <div class="container-fluid">
+    
+        <div class="col-sm-2">
+               <nav class="navbar navbar-default sidebar" role="navigation">
+    <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>      
+    </div>
+    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">My Profile<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+        <li ><a href="Custorder.aspx">My Orders<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>       
+        <li ><a href="#">Reset Password<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>        
+        
+      </ul>
+    </div>
+</div>
+</nav>
+        </div>
+        <div class="col-sm-10">
+              
+
+    <br />
+    <br />
+	<span id="ctl00_ContentPlaceHolder1_lblOutput">Here are the details for our Order No.ORD-001</span><br />
+        <span id="ctl00_ContentPlaceHolder1_lblCustName"></span><br />
+        <span id="ctl00_ContentPlaceHolder1_lblOrderDate"></span><br />
+	        <br />
+	        <div>
+	<table class="table table-hover table-striped" cellspacing="0" border="0" id="ctl00_ContentPlaceHolder1_grd" style="border-collapse:collapse;">
+		<tr>
+			<th scope="col">Product Code</th><th scope="col">Qty</th><th scope="col">Rate/Qty</th>
+		</tr><tr>
+			<td>P00-1</td><td>10</td><td>1.00</td>
+		</tr><tr>
+			<td>P00-1</td><td>10</td><td>1.00</td>
+		</tr>
+	</table>
+</div>
+
+        </div>
+    </div>
+</form>
+</body>
+</html>
